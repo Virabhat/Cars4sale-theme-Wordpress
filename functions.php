@@ -1,6 +1,13 @@
 <?php
 function cars4sale_enqueue_styles()
 {
+    wp_enqueue_style(
+        'google-fonts-prompt',
+        'https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap',
+        array(),
+        null
+    );
+
     wp_enqueue_style('main-style', get_stylesheet_uri());
 
     if (is_front_page()) {
