@@ -1,0 +1,133 @@
+/* --- Hero Banner --- */
+.hero-section {
+  background: linear-gradient(135deg, #0b192c 0%, #1e3e62 100%);
+  color: #ffffff;
+  padding: 80px 20px;
+  text-align: center;
+}
+.hero-content h1 {
+  font-size: 2.2rem;
+  line-height: 1.3;
+  margin-bottom: 15px;
+}
+.hero-content p {
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+/* --- รายการรถยนต์ (Grid) หน้าแรก --- */
+.main-container {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+.section-title {
+  text-align: center;
+  margin-bottom: 35px;
+}
+.section-title h2 {
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+}
+.cars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+/* --- การ์ดรถยนต์ --- */
+.car-card {
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+.car-image img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+.car-info {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.car-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.car-price {
+  font-size: 1.15rem;
+  color: #e65100;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+.car-specs {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #777;
+  margin-bottom: 18px;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 10px;
+}
+.btn-call {
+  background-color: #f25c05;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 0;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-top: auto;
+  transition: background 0.2s;
+}
+.btn-call:hover {
+  background-color: #d94e00;
+}
+
+/* --- Why Choose Us & Process Section --- */
+.section-features {
+  background-color: #ffffff;
+  padding: 60px 0;
+  margin-top: 60px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+.section-process {
+  background-color: #f8f9fa;
+  padding: 60px 0;
+}
+.features-grid,
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  text-align: center;
+}
+.feature-box,
+.process-step {
+  padding: 20px;
+}
+.feature-icon,
+.process-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+.feature-box h3,
+.process-step h3 {
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+  color: #222;
+}
+.feature-box p,
+.process-step p {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.5;
+}

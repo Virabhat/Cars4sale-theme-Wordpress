@@ -1,0 +1,199 @@
+/* --- Single Car Details Page --- */
+.single-car-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.car-header-title {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.car-header-title h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1a2530;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.badge-condition {
+  font-size: 0.75rem;
+  font-weight: 600;
+  background-color: #fde8e8;
+  color: #e05638;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.car-detail-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* คอลัมน์รูปซ้าย */
+.main-car-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.thumb-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.thumb-item {
+  text-align: center;
+}
+
+.thumb-item img {
+  width: 100%;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.thumb-item p {
+  font-size: 0.7rem;
+  color: #444;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+/* คอลัมน์ข้อมูลขวา */
+.single-price {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #d35400;
+  margin-bottom: 15px;
+}
+
+.key-facts-box {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 25px;
+  background-color: #ffffff;
+}
+
+.facts-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.facts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.fact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fact-icon {
+  font-size: 1.5rem;
+}
+
+.fact-item small {
+  display: block;
+  font-size: 0.65rem;
+  color: #718096;
+  font-weight: 600;
+}
+
+.fact-item strong {
+  display: block;
+  font-size: 0.85rem;
+  color: #2d3748;
+}
+
+/* ตารางสเปก */
+.specs-section h4 {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #1a2530;
+  margin-bottom: 10px;
+}
+
+.specs-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 25px;
+}
+
+.specs-table td {
+  padding: 8px 0;
+  font-size: 0.85rem;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.specs-table td:first-child {
+  font-weight: 700;
+  color: #2d3748;
+  width: 45%;
+}
+
+.specs-table td:last-child {
+  color: #4a5568;
+}
+
+/* ปุ่ม Call Now */
+.btn-call-detail {
+  display: block;
+  background-color: #d35400;
+  color: #ffffff;
+  text-align: center;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+.btn-call-detail:hover {
+  background-color: #ba4a00;
+}
+
+@media (max-width: 768px) {
+  .car-detail-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* กลุ่มปุ่มติดต่อ */
+.contact-action-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-line-detail {
+  display: block;
+  background-color: #06c755;
+  color: #ffffff;
+  text-align: center;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+.btn-line-detail:hover {
+  background-color: #05a847;
+}
