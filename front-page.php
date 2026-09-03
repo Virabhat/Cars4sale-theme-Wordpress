@@ -1,75 +1,122 @@
 <?php get_header(); ?>
 
-<!-- ส่วน Banner ค้นหาตามแบบดีไซน์ -->
+<!-- ส่วน Banner พร้อมฟอร์มค้นหา/กรองรถ -->
 <section class="hero-section">
     <div class="hero-content">
         <h1>FIND QUALITY USED CARS.<br>NO SIGN-UP NEEDED!<br>CALL US DIRECTLY.</h1>
         <p>Browse our curated selection and call us today for details and a test drive.</p>
+
+        <!-- ฟอร์มค้นหาและกรองรถ -->
+        <form method="GET" action="#cars" class="car-filter-form">
+            <input type="text" name="s_keyword" placeholder="ค้นหาชื่อรุ่นรถ เช่น Honda, Toyota..."
+                value="<?php echo esc_attr(isset($_GET['s_keyword']) ? $_GET['s_keyword'] : ''); ?>">
+
+            <select name="s_fuel">
+                <option value="">ทุกประเภทเชื้อเพลิง</option>
+                <option value="เบนซิน" <?php selected(isset($_GET['s_fuel']) ? $_GET['s_fuel'] : '', 'เบนซิน'); ?>>
+                    เบนซิน</option>
+                <option value="ดีเซล" <?php selected(isset($_GET['s_fuel']) ? $_GET['s_fuel'] : '', 'ดีเซล'); ?>>ดีเซล
+                </option>
+                <option value="ไฮบริด" <?php selected(isset($_GET['s_fuel']) ? $_GET['s_fuel'] : '', 'ไฮบริด'); ?>>
+                    ไฮบริด</option>
+                <option value="ไฟฟ้า" <?php selected(isset($_GET['s_fuel']) ? $_GET['s_fuel'] : '', 'ไฟฟ้า'); ?>>ไฟฟ้า
+                    (EV)</option>
+            </select>
+
+            <button type="submit" class="btn-filter-submit">ค้นหารถ</button>
+            <?php if (!empty($_GET['s_keyword']) || !empty($_GET['s_fuel'])): ?>
+                <a href="<?php echo esc_url(home_url('/')); ?>" class="btn-filter-reset">ล้างการค้นหา</a>
+            <?php endif; ?>
+        </form>
     </div>
 </section>
 
 <!-- ส่วนแสดงการ์ดรถยนต์ LATEST ARRIVALS -->
 <main class="main-container" id="cars">
     <div class="section-title">
-        <h2>LATEST ARRIVALS</h2>
+        <h2><?php echo (!empty($_GET['s_keyword']) || !empty($_GET['s_fuel'])) ? 'ผลการค้นหารถยนต์' : 'LATEST ARRIVALS'; ?>
+        </h2>
     </div>
 
     <div class="cars-grid">
         <?php
-        // เขียน Query ดึงข้อมูลจาก CPT 'car' ที่เราสร้างไว้
+        // 1. รับค่าจากฟอร์มค้นหา
+        $keyword = isset($_GET['s_keyword']) ? sanitize_text_field($_GET['s_keyword']) : '';
+        $fuel = isset($_GET['s_fuel']) ? sanitize_text_field($_GET['s_fuel']) : '';
+
+        // 2. ตั้งค่า Query
         $args = array(
             'post_type' => 'car',
-            'posts_per_page' => 8,
-            'post_status' => 'publish'
+            'posts_per_page' => 12,
+            'post_status' => 'publish',
+            's' => $keyword, // ค้นหาจากชื่อรุ่นรถ
         );
+
+        // 3. กรองเพิ่มจากฟิลด์ ACF 'fuel_type' ถ้ามีการเลือก
+        if (!empty($fuel)) {
+            $args['meta_query'] = array(
+                array(
+                    'key' => 'fuel_type',
+                    'value' => $fuel,
+                    'compare' => 'LIKE'
+                )
+            );
+        }
+
         $car_query = new WP_Query($args);
 
         if ($car_query->have_posts()):
             while ($car_query->have_posts()):
                 $car_query->the_post();
-                // ดึงค่าจาก ACF ที่เราตั้งไว้
                 $price = get_field('price');
                 $year = get_field('year');
                 $mileage = get_field('mileage');
                 $fuel_type = get_field('fuel_type');
+                $status = get_field('car_status') ? get_field('car_status') : 'available';
                 ?>
-        <!-- โครงการ์ดรถแต่ละคัน -->
-        <div class="car-card">
-            <div class="car-image">
-                <!-- ใส่แท็ก a ครอบรูปภาพ -->
-                <a href="<?php the_permalink(); ?>">
-                    <?php if (has_post_thumbnail()) : ?>
-                    <?php the_post_thumbnail('medium_large'); ?>
-                    <?php else : ?>
-                    <img src="https://via.placeholder.com/400x250?text=No+Image" alt="No image">
-                    <?php endif; ?>
-                </a>
-            </div>
+                <!-- โครงการ์ดรถ (เหมือนเดิม) -->
+                <div class="car-card status-<?php echo esc_attr($status); ?>">
+                    <div class="car-image">
+                        <?php if ($status === 'sold'): ?>
+                            <span class="badge-status status-sold">ขายแล้ว</span>
+                        <?php elseif ($status === 'reserved'): ?>
+                            <span class="badge-status status-reserved">ติดจอง</span>
+                        <?php else: ?>
+                            <span class="badge-status status-available">พร้อมขาย</span>
+                        <?php endif; ?>
 
-            <div class="car-info">
-                <!-- ใส่แท็ก a ครอบชื่อหัวข้อรถ -->
-                <h3 class="car-title">
-                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                </h3>
-                <div class="car-price"><?php echo esc_html($price); ?></div>
+                        <a href="<?php the_permalink(); ?>">
+                            <?php if (has_post_thumbnail()): ?>
+                                <?php the_post_thumbnail('medium_large'); ?>
+                            <?php else: ?>
+                                <img src="https://via.placeholder.com/400x250?text=No+Image" alt="No image">
+                            <?php endif; ?>
+                        </a>
+                    </div>
 
-                <div class="car-specs">
-                    <span>📅 <?php echo esc_html($year); ?></span>
-                    <span>🛣️ <?php echo esc_html($mileage); ?></span>
-                    <span>⛽ <?php echo esc_html($fuel_type); ?></span>
+                    <div class="car-info">
+                        <h3 class="car-title">
+                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                        </h3>
+                        <div class="car-price"><?php echo esc_html($price); ?></div>
+
+                        <div class="car-specs">
+                            <span>📅 <?php echo esc_html($year); ?></span>
+                            <span>🛣️ <?php echo esc_html($mileage); ?></span>
+                            <span>⛽ <?php echo esc_html($fuel_type); ?></span>
+                        </div>
+
+                        <a href="tel:+66810000000" class="btn-call">
+                            CALL NOW: +66 81-XXX-XXXX
+                        </a>
+                    </div>
                 </div>
 
-                <a href="tel:+66810000000" class="btn-call">
-                    CALL NOW: +66 81-XXX-XXXX
-                </a>
-            </div>
-        </div>
-
-        <?php
+                <?php
             endwhile;
             wp_reset_postdata();
         else:
-            echo '<p>ยังไม่มีรายการรถในระบบ กรุณาเพิ่มรถที่หลังบ้านครับ</p>';
+            echo '<p style="grid-column: 1/-1; text-align: center; color: #777;">ไม่พบรถยนต์ที่ตรงกับเงื่อนไขการค้นหาของคุณ</p>';
         endif;
         ?>
     </div>
@@ -136,7 +183,5 @@
         </div>
     </div>
 </section>
-
-
 
 <?php get_footer(); ?>

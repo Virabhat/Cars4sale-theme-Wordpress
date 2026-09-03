@@ -62,7 +62,7 @@ a {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 30px;
 }
 .footer-col h4 {
@@ -75,6 +75,44 @@ a {
   line-height: 1.8;
   color: #aaa;
 }
+.footer-col a:hover {
+  color: #fff;
+}
+
+/* ส่วนแผนที่ Google Maps และปุ่มนำทางใน Footer */
+.footer-map-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.map-embed-wrapper {
+  margin: 10px 0;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.map-embed-wrapper iframe {
+  display: block;
+}
+
+.btn-open-map {
+  display: inline-block;
+  background-color: #2e3b4e;
+  color: #ffffff !important;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-top: 6px;
+  transition: background 0.2s ease;
+}
+
+.btn-open-map:hover {
+  background-color: #3b4d66;
+}
+
 .footer-bottom {
   text-align: center;
   border-top: 1px solid #222;

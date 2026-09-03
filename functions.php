@@ -27,5 +27,14 @@ function cars4sale_enqueue_styles()
             '1.0'
         );
     }
+
+    if (is_page_template('page-about.php') || is_page('about')) {
+        wp_enqueue_style(
+            'about-style',
+            get_template_directory_uri() . '/css/about.css',
+            array('main-style'),
+            '1.0'
+        );
+    }
 }
 add_action('wp_enqueue_scripts', 'cars4sale_enqueue_styles');

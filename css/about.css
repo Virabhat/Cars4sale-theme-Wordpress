@@ -1,0 +1,160 @@
+/* --- สไตล์หน้า About Us --- */
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.about-hero {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  color: #ffffff;
+  padding: 60px 20px;
+  border-radius: 12px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.about-hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.about-hero p {
+  font-size: 1.1rem;
+  color: #cbd5e1;
+}
+
+.about-content-section {
+  padding: 50px 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.about-text h2 {
+  font-size: 1.6rem;
+  color: #111827;
+  margin-bottom: 15px;
+}
+
+.about-text p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #4b5563;
+  margin-bottom: 15px;
+}
+
+.about-highlight-box {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-left: 5px solid #e65100;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.about-highlight-box h3 {
+  margin-bottom: 20px;
+  color: #111827;
+}
+
+.about-checklist {
+  list-style: none;
+  padding: 0;
+}
+
+.about-checklist li {
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  color: #374151;
+  line-height: 1.6;
+}
+
+.about-values {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  margin: 30px 0 60px;
+}
+
+.value-card {
+  background: #ffffff;
+  padding: 30px 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-top: 3px solid #e65100;
+}
+
+.value-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.value-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #111827;
+}
+
+.value-card p {
+  font-size: 0.9rem;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.about-cta {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 45px 20px;
+  text-align: center;
+  margin-bottom: 50px;
+  border: 1px solid #e5e7eb;
+}
+
+.about-cta h2 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  color: #111827;
+}
+
+.about-cta p {
+  color: #6b7280;
+  margin-bottom: 25px;
+}
+
+.about-cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn-about-call, .btn-about-line {
+  padding: 12px 26px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.btn-about-call {
+  background-color: #d35400;
+  color: #ffffff;
+}
+
+.btn-about-line {
+  background-color: #06c755;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}

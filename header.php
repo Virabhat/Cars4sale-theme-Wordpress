@@ -22,7 +22,7 @@
                 <a href="<?php echo esc_url(home_url('/')); ?>">Home</a>
                 <a href="#cars">Cars</a>
                 <a href="#contact">Contact</a>
-                <a href="#about">About</a>
+                <a href="about">About</a>
             </nav>
             <div class="header-contact">
                 <a href="tel:+66810000000" class="phone-btn">📞 +66 81-XXX-XXXX</a>

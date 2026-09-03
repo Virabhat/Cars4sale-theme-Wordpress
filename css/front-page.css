@@ -131,3 +131,103 @@
   color: #666;
   line-height: 1.5;
 }
+/* --- ป้ายสถานะรถบนการ์ด --- */
+.car-image {
+  position: relative;
+}
+
+.badge-status {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #ffffff;
+  z-index: 2;
+}
+
+.badge-status.status-available {
+  background-color: #2e7d32; /* สีเขียว */
+}
+
+.badge-status.status-reserved {
+  background-color: #f39c12; /* สีส้ม */
+}
+
+.badge-status.status-sold {
+  background-color: #7f8c8d; /* สีเทา */
+}
+
+.car-card.status-sold .car-image img {
+  filter: grayscale(80%);
+  opacity: 0.75;
+}
+
+/* --- สไตล์กล่องค้นหาและตัวกรองหน้าแรก --- */
+.car-filter-form {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.car-filter-form input[type="text"],
+.car-filter-form select {
+  padding: 12px 16px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  background-color: #ffffff;
+  color: #333;
+}
+
+.car-filter-form input[type="text"] {
+  width: 280px;
+}
+
+.btn-filter-submit {
+  background-color: #f25c05;
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: inherit;
+}
+
+.btn-filter-submit:hover {
+  background-color: #d94e00;
+}
+
+.btn-filter-reset {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.btn-filter-reset:hover {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+@media (max-width: 600px) {
+  .car-filter-form input[type="text"],
+  .car-filter-form select,
+  .btn-filter-submit,
+  .btn-filter-reset {
+    width: 100%;
+    text-align: center;
+  }
+}
