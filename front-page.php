@@ -3,8 +3,11 @@
 <!-- ส่วน Banner พร้อมฟอร์มค้นหา/กรองรถ -->
 <section class="hero-section">
     <div class="hero-content">
-        <h1>FIND QUALITY USED CARS.<br>NO SIGN-UP NEEDED!<br>CALL US DIRECTLY.</h1>
-        <p>Browse our curated selection and call us today for details and a test drive.</p>
+        <h1><br>Cars4Sale รถมือสองคุณภาพ คัดชัวร์ ตรวจจริง ทุกคัน</h1>
+        <p>
+            รวมรถมือสองสภาพสวย คัดสรรอย่างมืออาชีพ ดอกเบี้ยพิเศษ อนุมัติไว เอกสารไม่ยุ่งยาก
+            มีทีมงานคอยดูแลทุกขั้นตอนจนได้รับรถ
+        </p>
 
         <!-- ฟอร์มค้นหาและกรองรถ -->
         <form method="GET" action="#cars" class="car-filter-form">
@@ -34,7 +37,7 @@
 <!-- ส่วนแสดงการ์ดรถยนต์ LATEST ARRIVALS -->
 <main class="main-container" id="cars">
     <div class="section-title">
-        <h2><?php echo (!empty($_GET['s_keyword']) || !empty($_GET['s_fuel'])) ? 'ผลการค้นหารถยนต์' : 'LATEST ARRIVALS'; ?>
+        <h2><?php echo (!empty($_GET['s_keyword']) || !empty($_GET['s_fuel'])) ? 'ผลการค้นหารถยนต์' : 'รถยนต์เข้ามาใหม่'; ?>
         </h2>
     </div>
 
