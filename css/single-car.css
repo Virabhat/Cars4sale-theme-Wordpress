@@ -241,3 +241,91 @@
     color: #ffffff;
   }
 }
+
+/* --- กล่องคำนวณค่างวดรถ (Loan Calculator) --- */
+.loan-calculator-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.loan-calculator-box h4 {
+  font-size: 1.1rem;
+  color: #1a202c;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #edf2f7;
+  padding-bottom: 8px;
+}
+
+.calc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.calc-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.calc-field label {
+  font-size: 0.8rem;
+  color: #4a5568;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.calc-field select,
+.calc-field input {
+  padding: 8px 10px;
+  border: 1px solid #cbd5e0;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  outline: none;
+  background-color: #f7fafc;
+}
+
+.calc-field select:focus,
+.calc-field input:focus {
+  border-color: #d35400;
+  background-color: #fff;
+}
+
+.calc-result {
+  background: #f8f9fa;
+  border-left: 4px solid #d35400;
+  border-radius: 4px;
+  padding: 12px 15px;
+  text-align: center;
+}
+
+.calc-result span {
+  font-size: 0.85rem;
+  color: #718096;
+}
+
+.calc-monthly-price {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #d35400;
+  margin: 5px 0;
+}
+
+.calc-monthly-price strong {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #4a5568;
+}
+
+.calc-result small {
+  display: block;
+  font-size: 0.72rem;
+  color: #a0aec0;
+  margin-top: 4px;
+}
