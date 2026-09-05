@@ -28,7 +28,7 @@
 
             <button type="submit" class="btn-filter-submit">ค้นหารถ</button>
             <?php if (!empty($_GET['s_keyword']) || !empty($_GET['s_fuel'])): ?>
-                <a href="<?php echo esc_url(home_url('/')); ?>" class="btn-filter-reset">ล้างการค้นหา</a>
+            <a href="<?php echo esc_url(home_url('/')); ?>" class="btn-filter-reset">ล้างการค้นหา</a>
             <?php endif; ?>
         </form>
     </div>
@@ -77,45 +77,45 @@
                 $fuel_type = get_field('fuel_type');
                 $status = get_field('car_status') ? get_field('car_status') : 'available';
                 ?>
-                <!-- โครงการ์ดรถ (เหมือนเดิม) -->
-                <div class="car-card status-<?php echo esc_attr($status); ?>">
-                    <div class="car-image">
-                        <?php if ($status === 'sold'): ?>
-                            <span class="badge-status status-sold">ขายแล้ว</span>
-                        <?php elseif ($status === 'reserved'): ?>
-                            <span class="badge-status status-reserved">ติดจอง</span>
-                        <?php else: ?>
-                            <span class="badge-status status-available">พร้อมขาย</span>
-                        <?php endif; ?>
+        <!-- โครงการ์ดรถ (เหมือนเดิม) -->
+        <div class="car-card status-<?php echo esc_attr($status); ?>">
+            <div class="car-image">
+                <?php if ($status === 'sold'): ?>
+                <span class="badge-status status-sold">ขายแล้ว</span>
+                <?php elseif ($status === 'reserved'): ?>
+                <span class="badge-status status-reserved">ติดจอง</span>
+                <?php else: ?>
+                <span class="badge-status status-available">พร้อมขาย</span>
+                <?php endif; ?>
 
-                        <a href="<?php the_permalink(); ?>">
-                            <?php if (has_post_thumbnail()): ?>
-                                <?php the_post_thumbnail('medium_large'); ?>
-                            <?php else: ?>
-                                <img src="https://via.placeholder.com/400x250?text=No+Image" alt="No image">
-                            <?php endif; ?>
-                        </a>
-                    </div>
+                <a href="<?php the_permalink(); ?>">
+                    <?php if (has_post_thumbnail()): ?>
+                    <?php the_post_thumbnail('medium_large'); ?>
+                    <?php else: ?>
+                    <img src="https://via.placeholder.com/400x250?text=No+Image" alt="No image">
+                    <?php endif; ?>
+                </a>
+            </div>
 
-                    <div class="car-info">
-                        <h3 class="car-title">
-                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                        </h3>
-                        <div class="car-price"><?php echo esc_html($price); ?></div>
+            <div class="car-info">
+                <h3 class="car-title">
+                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                </h3>
+                <div class="car-price"><?php echo esc_html($price); ?></div>
 
-                        <div class="car-specs">
-                            <span>📅 <?php echo esc_html($year); ?></span>
-                            <span>🛣️ <?php echo esc_html($mileage); ?></span>
-                            <span>⛽ <?php echo esc_html($fuel_type); ?></span>
-                        </div>
-
-                        <a href="tel:+66810000000" class="btn-call">
-                            CALL NOW: +66 81-XXX-XXXX
-                        </a>
-                    </div>
+                <div class="car-specs">
+                    <span>📅 <?php echo esc_html($year); ?></span>
+                    <span>🛣️ <?php echo esc_html($mileage); ?></span>
+                    <span>⛽ <?php echo esc_html($fuel_type); ?></span>
                 </div>
 
-                <?php
+                <a href="tel:+66810000000" class="btn-call">
+                    CALL NOW: +66 81-XXX-XXXX
+                </a>
+            </div>
+        </div>
+
+        <?php
             endwhile;
             wp_reset_postdata();
         else:
@@ -129,7 +129,7 @@
 <section class="section-features">
     <div class="main-container">
         <div class="section-title">
-            <h2>WHY CHOOSE US?</h2>
+            <h2>ทำไมต้องเลือกเรา?</h2>
         </div>
         <div class="features-grid">
             <div class="feature-box">
@@ -160,7 +160,7 @@
 <section class="section-process">
     <div class="main-container">
         <div class="section-title">
-            <h2>OUR PROCESS</h2>
+            <h2>บริการของเรา</h2>
         </div>
         <div class="process-grid">
             <div class="process-step">
