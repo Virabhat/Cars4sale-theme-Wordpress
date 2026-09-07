@@ -160,7 +160,7 @@
 <section class="section-process">
     <div class="main-container">
         <div class="section-title">
-            <h2>บริการของเรา</h2>
+            <h2>บริการของเรา ทั้งหมด</h2>
         </div>
         <div class="process-grid">
             <div class="process-step">
